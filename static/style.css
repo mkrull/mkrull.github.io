@@ -1,0 +1,204 @@
+body {
+    font-family: 'Lucida Console', Monaco, monospace;
+    font-size: 16px; /* You can adjust this value as needed */
+    background-color: #777777; /* Darker gray color */
+    color: #000000;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Paragraph styling (for reference) */
+p {
+    font-size: 1rem; /* 1rem equals the font size of the root element (usually 16px) */
+    line-height: 1.5;
+}
+
+/* H1 styling */
+h1 {
+    font-size: 1rem; /* Same size as paragraphs */
+    font-weight: bold;
+    margin-bottom: 1rem; /* Adds some space below the heading */
+}
+
+/* H2 styling */
+h2 {
+    font-size: 1rem; /* Same size as paragraphs */
+    font-weight: bold;
+    margin-bottom: 0.75rem; /* Slightly less space than h1 */
+}
+
+/* H3 styling */
+h3 {
+    font-size: 1rem; /* Same size as paragraphs */
+    font-style: italic;
+    font-weight: normal; /* Ensuring it's not bold */
+    margin-bottom: 0.5rem; /* Even less space below */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+.main-content a {
+    color: #448844;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main-content a:hover {
+    text-decoration: underline;
+}
+
+.main-content {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.sidebar {
+    width: 200px;
+    position: relative;
+}
+
+.titlebar {
+    background-color: #EAFFFF;
+    border-bottom: 1px solid #000000;
+    padding: 5px 10px;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.titlebar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: #9EEEEE;
+}
+
+.float-toggle {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+.float-toggle:hover {
+    opacity: 0.7;
+}
+
+.floating {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    width: 300px;
+    z-index: 1000;
+}
+
+.window {
+    border: 4px solid #9EEEEE;
+    background-color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.titlebar {
+    background-color: #EAFFFF;
+    border-bottom: 2px solid #000000;
+    padding: 5px 10px;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titlebar .title {
+    flex-grow: 1;
+}
+
+.titlebar .date {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.content {
+    padding: 10px;
+}
+
+button {
+    background-color: #EEEE9E;
+    border: 2px solid #9EEEEE;
+    padding: 5px 10px;
+    margin-right: 5px;
+    font-family: 'Lucida Console', Monaco, monospace;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FFFF9E;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin-bottom: 5px;
+}
+
+.menu a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+pre code.language-terminal {
+    display: block;
+    background-color: #FFFFEA;
+    color: #000000;
+    font-family: 'Go Mono', 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 10px;
+    margin: 15px 15px 0 15px;
+    border: 2px solid #9EEEEE;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+::selection {
+    background-color: #EEEE9E; /* Same yellowish color as the titlebar */
+    color: #000000; /* Black text for better readability */
+}
+
+::-moz-selection {
+    background-color: #EEEE9E; /* For Firefox */
+    color: #000000;
+}
+
+.floating-window {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 300px;
+    z-index: 1000;
+    cursor: move;
+}
+
+.mirrored-image {
+    transform: scaleX(-1);
+}

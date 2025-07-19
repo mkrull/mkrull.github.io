@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIL</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+          
+
+<div class="window">
+    <div class="titlebar">
+        <span class="title">Common Lisp Starter</span>
+        <span class="date">July 21, 2025</span>
+    </div>
+    <div class="content">
+        <p>Every couple of years I dabble around with Common Lisp and usually stuble
+across some things that are surprising and a bit frustrating and I have to
+figure things out again. Not anymore.</p>
+<p>The canonical source of information for Common Lisp beginners appears to be the
+<a href="https://lispcookbook.github.io/cl-cookbook/getting-started.html">Common Lisp
+Cookbook</a> and
+this guide is roughly based on that with a few smaller deviations and kept more
+brief. So if you want to know all the things, read the cookbook!</p>
+<h2 id="install-common-lisp">Install Common Lisp</h2>
+<p><a href="https://roswell.github.io/">Roswell</a> makes working with Common Lisp easier if
+you are used to working with other programming languages in Unixish OSes.</p>
+<p>Install it with the package manager of your choice:</p>
+<pre><code class="language-terminal">% brew install roswell sbcl
+</code></pre>
+<p>Once done, use the system sbcl. I tried installing sbcl or sbcl with roswell
+but got errors on a fresh install that I couldn't figure out.</p>
+<pre><code class="language-terminal">% ros use sbcl/system
+</code></pre>
+<h2 id="create-system">Create System</h2>
+<p>While it is possible to create a new project anywhere it is usually just easier
+to make use of the builtin quicklisp facilities that come with <code>roswell</code>.
+Quicklisp comes with Roswell already.</p>
+<pre><code class="language-terminal">% mkdir -p $HOME/.roswell/lisp/quicklisp/local-projects/
+% cd $HOME/.roswell/lisp/quicklisp/local-projects/
+</code></pre>
+<p>To create a project using <code>cl-project</code> start a repl and run:</p>
+<pre><code class="language-terminal">% ros run
+(ql:quickload &quot;cl-project&quot;)
+(cl-project:make-project #P&quot;hello-system&quot;)
+</code></pre>
+<p>That command creates a new project with a file structure like this:</p>
+<pre><code class="language-terminal">% tree
+.
+├── README.markdown
+├── README.org
+├── hello-system.asd
+├── src
+│   └── main.lisp
+└── tests
+    └── main.lisp
+
+3 directories, 5 files
+</code></pre>
+<p>Edit <code>src/main.lisp</code> and add a <code>hello-world</code> function that is exported:</p>
+<pre><code class="language-terminal">% cat src/main.lisp
+(uiop:define-package hello-system
+  (:use #:cl)
+  (:export #:hello-world))
+(in-package #:hello-system)
+
+(defun hello-world (&amp;optional (name &quot;World&quot;))
+  &quot;Print a greeting to the specified name (defaults to 'World').&quot;
+  (format t &quot;Hello, ~a!~%&quot; name)
+  (values))
+</code></pre>
+<p>Running a repl from anywhere should allow to locate and load the system:</p>
+<pre><code class="language-terminal">ros run
+* (ql:quickload &quot;hello-system&quot;)
+To load &quot;hello-system&quot;:
+  Load 1 ASDF system:
+    hello-system
+; Loading &quot;hello-system&quot;
+
+(&quot;hello-system&quot;)
+* (find-symbol &quot;HELLO-WORLD&quot; :hello-system)
+HELLO-SYSTEM:HELLO-WORLD
+:EXTERNAL
+* (hello-system::hello-world)
+Hello, World!
+* (hello-system::hello-world &quot;lispy&quot;)
+Hello, lispy!
+*
+</code></pre>
+
+    </div>
+</div>
+
+
+        </div>
+
+        <div class="sidebar">
+          
+<div class="window">
+    
+    <div class="content">
+        <ul class="menu">
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
+</div>
+<div id="switchableWindow" class="window">
+    <div class="titlebar">
+        <span class="title">mak</span>
+        <button id="toggleFloat" class="float-toggle" aria-label="Toggle float">~</button>
+    </div>
+    <div class="content">
+        <img src="/static/spaceglenda.jpg" alt="Glenda" width="180" class="mirrored-image">
+    </div>
+</div>
+
+        </div>
+    </div>
+    <script src="/static/window.js"></script>
+</body>
+</html>
