@@ -31,8 +31,8 @@ you are used to working with other programming languages in Unixish OSes.</p>
 <p>Install it with the package manager of your choice:</p>
 <pre><code class="language-terminal">% brew install roswell sbcl
 </code></pre>
-<p>Once done, use the system sbcl. I tried installing sbcl or sbcl with roswell
-but got errors on a fresh install that I couldn't figure out.</p>
+<p>Once done, use the system sbcl. I tried installing sbcl or sbcl-bin with
+roswell but got errors on a fresh install that I couldn't figure out.</p>
 <pre><code class="language-terminal">% ros use sbcl/system
 </code></pre>
 <h2 id="create-system">Create System</h2>
@@ -90,6 +90,20 @@ Hello, World!
 Hello, lispy!
 *
 </code></pre>
+
+    </div>
+</div>
+
+<div class="window">
+    <div class="titlebar">
+        <span class="title">Github Pages Force Push</span>
+        <span class="date">July 21, 2025</span>
+    </div>
+    <div class="content">
+        <p>Force pushing to the main branch served using Github pages seems to disable
+custom domains. So after doing that I had to re-add the custom domain name.</p>
+<p>The reason for that behaviour is a <code>CNAME</code> file Github creates that has to be
+synced back. <code>git pull --rebase main</code> is your friend.</p>
 
     </div>
 </div>
